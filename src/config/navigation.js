@@ -1,6 +1,7 @@
-import { getPermalink, getBlogPermalink, getAsset } from './utils/permalinks';
+import SITE from './site';
+import { getPermalink, getBlogPermalink, getAsset } from '../utils/permalinks';
 
-export const headerData = {
+export const header = {
   links: [
     {
       text: 'Landing',
@@ -24,45 +25,44 @@ export const headerData = {
       links: [
         {
           text: 'Features',
-          href: '#',
+          href: getPermalink('/pages/features'),
         },
         {
           text: 'Pricing',
-          href: '#',
+          href: getPermalink('/pages/pricing'),
         },
         {
           text: 'About us',
-          href: '#',
-        },
-        {
-          text: 'Contact',
-          href: '#',
+          href: getPermalink('/pages/about'),
         },
         {
           text: 'Terms',
-          href: getPermalink('/terms'),
+          href: getPermalink('/pages/terms'),
         },
         {
           text: 'Privacy policy',
-          href: getPermalink('/privacy'),
+          href: getPermalink('/pages/privacy'),
         },
       ],
     },
     {
       text: 'Widgets',
-      href: '#',
+      href: getPermalink('/widgets', 'post'),
     },
     {
       text: 'Blog',
       href: getBlogPermalink(),
     },
+    {
+      text: 'Contact',
+      href: getPermalink('/pages/contact'),
+    },
   ],
-  actions: [
-    { type: 'button', text: 'Download', href: 'https://github.com/onwidget/astrowind' }
-  ],
+  actions: [{ class: 'btn-primary', text: 'Download', href: 'https://github.com/onwidget/astrowind' }],
 };
-  
-export const footerData = {
+
+export const footer = {
+  siteName: SITE?.name,
   links: [
     {
       title: 'Product',
